@@ -83,6 +83,10 @@
     scrollbar-color: var(--border) transparent;
   }
 
+  html {
+    @apply scroll-smooth;
+  }
+
   body {
     @apply bg-transparent text-foreground;
   }

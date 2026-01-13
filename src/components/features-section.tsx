@@ -6,7 +6,7 @@ import CardBg from "@/assets/card-bg.png";
 
 export function FeaturesSection() {
   return (
-    <section className="py-12">
+    <section id="features" className="py-12">
       <div className="container flex flex-col items-center justify-center">
         <Tag>Vision, Mission & Values</Tag>
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3 w-full">

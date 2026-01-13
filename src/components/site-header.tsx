@@ -12,10 +12,10 @@ import { CustomButton } from "@/components/ui/custom-button";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
-  { href: "#", label: "Home" },
-  { href: "#", label: "Features" },
-  { href: "#", label: "Integrations" },
-  { href: "#", label: "FAQs" },
+  { href: "#home", label: "Home" },
+  { href: "#features", label: "Tentang Kami" },
+  { href: "#integrations", label: "Layanan" },
+  { href: "#faqs", label: "FAQs" },
 ];
 
 export default function SiteHeader() {

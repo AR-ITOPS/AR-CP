@@ -32,7 +32,7 @@ export function FAQSection() {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   return (
-    <section className="py-12">
+    <section id="faqs" className="py-12">
       <div className="container flex flex-col items-center justify-center">
         <Tag>Faqs</Tag>
         <h2 className="mt-6 max-w-xl text-center font-medium text-6xl text-neutral-900">

@@ -47,6 +47,7 @@ export function HeroSection() {
 
   return (
     <section
+      id="home"
       className="relative min-h-screen overflow-hidden pt-32 pb-12 flex items-center"
       style={{ cursor: `url(${CursorYou.src}), auto` }}
     >
@@ -78,7 +79,6 @@ export function HeroSection() {
           initial={{ opacity: 0, x: -100, y: 100 }}
           className="absolute top-96 left-56 max-xl:hidden"
         >
-          <Pointer displayName="Leo" color="red" />
         </motion.div>
         <motion.div
           ref={rightDesignScope}
@@ -94,7 +94,7 @@ export function HeroSection() {
           initial={{ opacity: 0, x: 275, y: 100 }}
           className="-top-4 absolute right-80 max-xl:hidden"
         >
-          <Pointer displayName="Kevin" color="pink" />
+
         </motion.div>
 
         <div className="flex flex-col items-center justify-center text-center">

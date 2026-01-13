@@ -120,7 +120,7 @@ function IntegrationColumn({
 
 export function IntegrationsSection() {
   return (
-    <section className="overflow-hidden py-12 bg-white/50 backdrop-blur-sm">
+    <section id="integrations" className="overflow-hidden py-12 bg-white/50 backdrop-blur-sm">
       <div className="container">
         <div className="grid items-center lg:grid-cols-2 lg:gap-16">
           <section className="max-md:flex max-md:flex-col max-md:items-center max-md:justify-center">
