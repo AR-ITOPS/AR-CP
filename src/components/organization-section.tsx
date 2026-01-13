@@ -9,31 +9,31 @@ const ORG_DATA = [
     {
         role: "Komisaris",
         name: "SUYONO",
-        image: "/images/suyono.png",
+        image: "/images/Suyono.png",
         level: 1,
     },
     {
         role: "Direktur",
         name: "MOCHAMMAD AMIRUDDIN",
-        image: "/images/amir.png",
+        image: "/images/Amir.png",
         level: 2,
     },
     {
         role: "MANAGER OPERASIONAL & PEMASARAN",
         name: "HALIM ACHMAD RASYID",
-        image: "/images/rasyid.png",
+        image: "/images/Rasyid.png",
         level: 3,
     },
     {
         role: "MANAGER SDM",
         name: "LYA ARFIANTI",
-        image: "/images/fifi.png",
+        image: "/images/Fifi.png",
         level: 3,
     },
     {
         role: "HUMAS",
         name: "SUSILO",
-        image: "/images/susilo.png",
+        image: "/images/Susilo.png",
         level: 3,
     },
 ];

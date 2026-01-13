@@ -14,8 +14,8 @@ export function Tag({
       )}
       {...props}
     >
-      <span className="text-xl">&#10038;</span>
-      <span className="text-lg font-medium">{children}</span>
+      <span className="text-2xl">&#10038;</span>
+      <span className="text-xl font-medium">{children}</span>
     </div>
   );
 }
