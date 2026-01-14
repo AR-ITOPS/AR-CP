@@ -4,6 +4,7 @@ import type React from "react";
 import SiteFooter from "@/components/site-footer";
 import SiteHeader from "@/components/site-header";
 import { WhatsAppWidget } from "@/components/whatsapp-widget";
+import { LoadingScreen } from "@/components/loading-screen";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -35,8 +36,9 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning={true}>
-      <body className={`${inter.className} antialiased relative`}>
+    <html lang="en">
+      <body className={inter.className}>
+        <LoadingScreen />
         {/* Global Background Video */}
         <div className="fixed inset-0 z-[-1]">
           <video
@@ -50,7 +52,7 @@ export default function RootLayout({
             Your browser does not support the video tag.
           </video>
           {/* Glassmorphism Overlay */}
-          <div className="absolute " />
+          <div className="absolute inset-0 bg-white/5 backdrop-blur-sm" />
         </div>
         <div className="flex min-h-screen flex-col">
           <SiteHeader />
