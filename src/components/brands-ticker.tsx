@@ -78,7 +78,7 @@ export function BrandsTicker() {
           <motion.div
             animate={{ x: "-50%" }}
             transition={{
-              duration: 30,
+              duration: 60,
               ease: "linear",
               repeat: Number.POSITIVE_INFINITY,
             }}
