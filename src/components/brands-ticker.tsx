@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import Image from "next/image";
 import { Fragment } from "react";
+import { Tag } from "@/components/ui/tag";
 import kai from "@/assets/client/kai.png";
 import kaic from "@/assets/client/kaic.png";
 import kaib from "@/assets/client/kaib.png";
@@ -70,6 +71,9 @@ export function BrandsTicker() {
   return (
     <section className="overflow-x-clip py-5">
       <div className="container">
+        <div className="flex flex-col items-center justify-center mb-8">
+          <Tag>Client Kami</Tag>
+        </div>
         <div className="mt-12 flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
           <motion.div
             animate={{ x: "-50%" }}

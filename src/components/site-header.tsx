@@ -8,7 +8,6 @@ import { useState } from "react";
 import LayersLogo from "@/assets/artour-hitam.png";
 import BatikBg from "@/assets/batikkk.png";
 import { buttonVariants } from "@/components/ui/button";
-import { CustomButton } from "@/components/ui/custom-button";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
@@ -56,42 +55,41 @@ export default function SiteHeader() {
                 </Link>
               ))}
             </nav>
-            <div>
-              <button
-                className={cn(
-                  buttonVariants({
-                    variant: "ghost",
-                    className:
-                      "-ml-2 mr-2 h-8 w-8 cursor-pointer px-0 text-base transition duration-300 hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden",
-                  }),
-                )}
+
+            {/* Mobile Menu Toggle */}
+            <button
+              className={cn(
+                buttonVariants({
+                  variant: "ghost",
+                  className:
+                    "-ml-2 mr-2 h-8 w-8 cursor-pointer px-0 text-base transition duration-300 hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 lg:hidden",
+                }),
+              )}
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className={cn("!size-6", isOpen && "hidden")}
                 onClick={() => setIsOpen(!isOpen)}
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className={cn("!size-6", isOpen && "hidden")}
-                  onClick={() => setIsOpen(!isOpen)}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3.75 9h16.5m-16.5 6.75h16.5"
-                  />
-                </svg>
-                <X
-                  className={cn(
-                    "!size-6 text-muted-foreground",
-                    !isOpen && "hidden",
-                  )}
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3.75 9h16.5m-16.5 6.75h16.5"
                 />
-                <span className="sr-only">Toggle Menu</span>
-              </button>
-
-            </div>
+              </svg>
+              <X
+                className={cn(
+                  "!size-6 text-muted-foreground",
+                  !isOpen && "hidden",
+                )}
+              />
+              <span className="sr-only">Toggle Menu</span>
+            </button>
           </div>
           <MobileNav isOpen={isOpen} />
         </div>
@@ -113,16 +111,10 @@ function MobileNav({ isOpen }: { isOpen: boolean }) {
             className="flex flex-col items-center gap-4 overflow-hidden"
           >
             {NAV_LINKS.map((link, index) => (
-              <Link key={index} href={link.href}>
+              <Link key={index} href={link.href} className="text-neutral-900 hover:text-blue-600 transition-colors">
                 <span>{link.label}</span>
               </Link>
             ))}
-            <CustomButton variant="secondary" size="sm">
-              Log In
-            </CustomButton>
-            <CustomButton variant="primary" size="sm">
-              Sign Up
-            </CustomButton>
           </motion.div>
         )}
       </AnimatePresence>
