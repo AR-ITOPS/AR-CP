@@ -51,8 +51,6 @@ export default function RootLayout({
             <source src="/batik-view.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          {/* Glassmorphism Overlay */}
-          <div className="absolute inset-0 bg-white/5 backdrop-blur-sm" />
         </div>
         <div className="flex min-h-screen flex-col">
           <SiteHeader />
