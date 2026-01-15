@@ -25,7 +25,7 @@ export function WhatsAppWidget() {
                 className="relative"
             >
                 {/* Arta Image Only - Larger Size */}
-                <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full ">
+                <div className="relative w-38 h-38 md:w-42 md:h-42 rounded-full ">
                     <Image
                         src={ArtaLogo}
                         alt="Arta - Customer Service"
