@@ -1,12 +1,24 @@
 "use client";
 
 import Image from "next/image";
+import { motion, useInView } from "motion/react";
+import { useRef } from "react";
 import { Tag } from "@/components/ui/tag";
 import CardBg from "@/assets/card-bg.png";
 
 export function FeaturesSection() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, margin: "-100px" });
+
   return (
-    <section id="features" className="py-12">
+    <motion.section
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      id="features"
+      className="py-12"
+    >
       <div className="container flex flex-col items-center justify-center">
         <Tag>Vision, Mission & Values</Tag>
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3 w-full">
@@ -128,6 +140,6 @@ export function FeaturesSection() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

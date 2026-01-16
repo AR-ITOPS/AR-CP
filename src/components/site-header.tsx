@@ -10,7 +10,7 @@ import BatikBg from "@/assets/batikkk.png";
 
 const NAV_LINKS = [
   { href: "#home", label: "Home" },
-  { href: "#features", label: "Tentang Kami" },
+  { href: "#introduction", label: "Tentang Kami" },
   { href: "#integrations", label: "Layanan" },
   { href: "#faqs", label: "FAQs" },
 ];

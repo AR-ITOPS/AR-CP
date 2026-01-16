@@ -1,7 +1,7 @@
 "use client";
 
-import { AnimatePresence, motion } from "motion/react";
-import { useState } from "react";
+import { AnimatePresence, motion, useInView } from "motion/react";
+import { useState, useRef } from "react";
 import { Tag } from "@/components/ui/tag";
 import { cn } from "@/lib/utils";
 
@@ -9,30 +9,44 @@ const FAQS = [
   {
     question: "Seberapa berpengalaman perusahaan Anda?",
     answer:
-      "Kami memiliki pengalaman lebih dari 10 tahun dalam industri transport provider, event management, serta pengadaan barang dan jasa, sehingga mampu menangani berbagai kebutuhan klien secara profesional dan terpercaya.",
+      "Berpengalaman lebih dari 10 tahun dalam industri transport provider, event management, pengadaan barang dan jasa.",
   },
   {
-    question: "Siapa yang menangani layanan dan operasional perusahaan?",
+    question: "Apa saja layanan yang ditawarkan oleh ARTOUR INDONESIA?",
     answer:
-      "Seluruh layanan kami ditangani oleh tim profesional yang memiliki keahlian terbaik di bidangnya masing-masing, berpengalaman, dan berkomitmen memberikan hasil maksimal.",
+      "ARTOUR INDONESIA menyediakan berbagai layanan terintegrasi seperti transportasi perjalanan, pengelolaan event, dan solusi kebutuhan bisnis lainnya.",
   },
   {
-    question: "Bagaimana kualitas layanan pelanggan yang diberikan?",
+    question: "Bagaimana cara menghubungi ARTOUR INDONESIA?",
     answer:
-      "Kami menyediakan layanan pelanggan yang responsif dan solutif, dengan mengutamakan kenyamanan, kepuasan, serta pengalaman terbaik bagi setiap pelanggan.",
+      "Anda dapat menghubungi kami melalui telepon di 0822-4500-9991 atau email di artourindonesia@gmail.com.",
   },
   {
-    question: "Apa keunggulan solusi yang ditawarkan perusahaan?",
+    question: "Apakah ARTOUR INDONESIA melayani event skala besar?",
     answer:
-      "Kami menghadirkan solusi yang inovatif dan berkelanjutan, disesuaikan dengan kebutuhan pelanggan untuk memastikan efektivitas, efisiensi, dan nilai jangka panjang.",
+      "Ya, kami memiliki tim profesional dan berpengalaman yang siap menangani event dari berbagai skala, baik kecil maupun besar.",
+  },
+  {
+    question: "Di mana lokasi kantor ARTOUR INDONESIA?",
+    answer:
+      "Kantor kami berlokasi di Green Oase Residence B15-17, Tugurejo, Kec. Tugu, Kota Semarang, Jawa Tengah 50182.",
   },
 ];
 
 export function FAQSection() {
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, margin: "-100px" });
 
   return (
-    <section id="faqs" className="py-12">
+    <motion.section
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      id="faqs"
+      className="py-12"
+    >
       <div className="container flex flex-col items-center justify-center">
         <Tag>Faqs</Tag>
         <h2 className="mt-6 max-w-xl text-center font-medium text-6xl text-neutral-900">
@@ -83,6 +97,6 @@ export function FAQSection() {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

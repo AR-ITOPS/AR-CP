@@ -1,13 +1,25 @@
 "use client";
 
+import { motion, useInView } from "motion/react";
+import { useRef } from "react";
 import { Tag } from "@/components/ui/tag";
 
 export function IntroductionSection() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, margin: "-100px" });
+
   const argument =
     "merupakan perusahaan profesional di bidang industri jasa terintegrasi yang menyediakan solusi menyeluruh untuk kebutuhan transportasi perjalanan, event, dan kebutuhan bisnis. Dengan dukungan tim profesional, berpengalaman.";
 
   return (
-    <section className="py-12 bg-white/50 backdrop-blur-sm">
+    <motion.section
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      id="introduction"
+      className="py-12 bg-white/50 backdrop-blur-sm"
+    >
       <div className="container">
         <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto px-4">
           <Tag>About Us</Tag>
@@ -29,6 +41,6 @@ export function IntroductionSection() {
           <div className="mt-12 w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full" />
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

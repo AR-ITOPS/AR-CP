@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import { motion, useInView } from "motion/react";
+import { useRef } from "react";
 import { Tag } from "@/components/ui/tag";
 import { cn } from "@/lib/utils";
 
@@ -39,12 +41,21 @@ const ORG_DATA = [
 ];
 
 export function OrganizationSection() {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: false, margin: "-100px" });
+
     const level1 = ORG_DATA.filter(p => p.level === 1);
     const level2 = ORG_DATA.filter(p => p.level === 2);
     const level3 = ORG_DATA.filter(p => p.level === 3);
 
     return (
-        <section className="py-12 overflow-hidden">
+        <motion.section
+            ref={ref}
+            initial={{ opacity: 0, y: 50 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="py-12 bg-white/30 "
+        >
             <div className="container flex flex-col items-center">
                 <Tag>Organization Structure</Tag>
                 <h2 className="mt-6 text-center font-medium text-4xl md:text-5xl text-neutral-900 mb-16">
@@ -87,7 +98,7 @@ export function OrganizationSection() {
                     </div>
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 }
 

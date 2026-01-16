@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import { motion, useInView } from "motion/react";
+import { useRef } from "react";
 import { Tag } from "@/components/ui/tag";
 import { Mail, MapPin, Phone, Globe, Instagram } from "lucide-react";
 import CardBg from "@/assets/batikkk.png";
@@ -35,8 +37,17 @@ const CONTACT_DETAILS = [
 ];
 
 export function ContactSection() {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: false, margin: "-100px" });
+
     return (
-        <section className="py-12">
+        <motion.section
+            ref={ref}
+            initial={{ opacity: 0, y: 50 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="py-12"
+        >
             <div className="container flex flex-col items-center">
                 <Tag>Contact Us</Tag>
                 <h2 className="mt-3 text-center font-medium text-4xl md:text-5xl text-neutral-900 mb-12">
@@ -130,7 +141,7 @@ export function ContactSection() {
                     </div>
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 }
 

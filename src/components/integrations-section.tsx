@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, useInView } from "motion/react";
 import Image from "next/image";
-import { Fragment } from "react";
+import { Fragment, useRef } from "react";
 import sewa from "@/assets/SEWA.png";
 import eo from "@/assets/EO.png";
 import mice from "@/assets/MICE.png";
@@ -119,8 +119,18 @@ function IntegrationColumn({
 }
 
 export function IntegrationsSection() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
-    <section id="integrations" className="overflow-hidden py-12 bg-white/50 backdrop-blur-sm">
+    <motion.section
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      id="integrations"
+      className="overflow-hidden py-12 bg-white/50 backdrop-blur-sm"
+    >
       <div className="container">
         <div className="grid items-center lg:grid-cols-2 lg:gap-16">
           <section className="max-md:flex max-md:flex-col max-md:items-center max-md:justify-center">
@@ -186,6 +196,6 @@ export function IntegrationsSection() {
           </section>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
